@@ -1,0 +1,47 @@
+{
+  "services": {
+    "functions": {
+      "image": "supabase/edge-runtime@sha256:edd22bef4477b900d5c300e287ce9b18bff9b81a0291bee14ee0b7c7b71a2899"
+    },
+    "storage": {
+      "image": "supabase/storage-api@sha256:f1546fac6d1c7e345428ac904bfaa7be7cecd50a1f549fe1cf38c628a7b15c85"
+    },
+    "realtime": {
+      "image": "supabase/realtime@sha256:cbcc6a7986fc28b6dcffa798b077d5fb9c69cd25500371ab49147a86d7edbb03"
+    },
+    "meta": {
+      "image": "supabase/postgres-meta@sha256:9a079ac1c94d89629262822a4bd1902d5b1be4adb464e5a0a8fd078aaed72158"
+    },
+    "supavisor": {
+      "image": "supabase/supavisor@sha256:464b93a60ba8c96bc06dad7f241562d6613b2a994922307717b05f432ae415c2"
+    },
+    "auth": {
+      "image": "supabase/gotrue@sha256:c0c25187a6b835e65a6f6e6c6b39d090e832d40e6de5186f2c038e0411944232"
+    },
+    "api-gw": {
+      "image": "envoyproxy/envoy@sha256:57e14a549d7bd43c8d3f6d03e8cfa653e037d4b38e133acd9b54f38c524401b4"
+    },
+    "rest": {
+      "image": "postgrest/postgrest@sha256:c9dc201e555f5d8e37e7f39cdd4df0229774996e213bfd7de8d10ac609030f2c"
+    },
+    "db": {
+      "image": "supabase/postgres@sha256:f371b5f3f2ac0a05703f33d6e6134515fb2498cab708fb948a0aeb7481467c00",
+      "entrypoint": [
+        "postgres"
+      ],
+      "command": [
+        "-c",
+        "config_file=/etc/postgresql/postgresql.conf",
+        "-c",
+        "log_min_messages=fatal"
+      ],
+      "user": "100:101"
+    },
+    "studio": {
+      "image": "supabase/studio@sha256:94a2a9d2906e8b4109e55159a62e241c3044709a492913ea8edd34b14973d288"
+    },
+    "imgproxy": {
+      "image": "darthsim/imgproxy@sha256:73c5dda13199745b0d2d00e4149d4a589c5b2e205dbf335ca05eca8276b54712"
+    }
+  }
+}
