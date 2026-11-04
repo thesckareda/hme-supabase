@@ -29,7 +29,7 @@ The main conclusions are:
 | No-answer disposition/label | 214 |
 | No-answer label without connection evidence | 188 |
 | Explicit rejected / busy labels | 0 / 0 |
-| Unknown raw status / missing explicit outcome | 0 / 101 |
+| Unknown raw status / missing coded terminal outcome | 0 / 101 |
 | Voicemail-labelled calls | 27 |
 | Recorded valid duration (seconds) | 14,611.68 |
 | Recorded valid calling hours | 4.06 |
@@ -97,6 +97,8 @@ The active VK snapshot is historical as of its capture: new calls can arrive lat
 5. **Duration**: finite, nonnegative stored `duration_seconds`, summed across eligible records. Zero is included in the eligible average and reported separately; missing values remain missing. Queue-to-end timestamps and null durations are not silently turned into billable talk time. Connected duration is the sum/mean of durations available for the connected subset, with its own eligibility denominator. Stored session time is not independently reconciled against carrier invoices.
 6. **Contacts**: normalized 7–15-digit contact endpoints; invalid/non-numeric placeholders excluded. Project-scoped HMAC IDs prevent disclosure. Repeat-contact rate is endpoints with >1 attempted call / distinct attempted endpoints. A phone endpoint is not proof of one natural person; cross-business identity matching is not justified.
 7. **Conversion**: a verified booking/order/payment/deal linkage or explicit validated business outcome. A reminder acknowledgement is a reminder outcome, not an enrolment. A callback claim in an AI summary is not a verified follow-up task. Model summaries/sentiment are qualitative annotations, not audited commercial evidence.
+No coded terminal outcome means no terminal outcome code in the primary row; ecommerce has free-text AI outcome summaries, which are represented separately by response categories. It does not mean those rows lack all descriptive notes.
+
 8. **Revenue**: supported settled-payment evidence in its original currency. Cart value is potential basket value, not revenue. Cost estimates are not paid invoices. No revenue or ROI is imputed.
 
 | KPI / source fields | Calculation / limitation |
@@ -250,7 +252,7 @@ No schema contains an audited pipeline linking these calls to settled payments, 
 | Missing/invalid contact identifiers on attempt rows | 1 |
 | Explicit rejected / busy labels | 0 / 0 |
 | Explicit rejection-label rate (coverage limited) | 0.00% |
-| Unknown raw status / missing explicit outcome | 0 / 79 |
+| Unknown raw status / missing coded terminal outcome | 0 / 79 |
 | Explicit QA-marker rows (minimum, not full classification) | 4 |
 | Confirmed interest / qualification / booking completion / sales rate | N/A unless separately evidenced above |
 | Calls per successful commercial conversion | N/A |
@@ -380,7 +382,7 @@ No schema contains an audited pipeline linking these calls to settled payments, 
 | Missing/invalid contact identifiers on attempt rows | 0 |
 | Explicit rejected / busy labels | 0 / 0 |
 | Explicit rejection-label rate (coverage limited) | 0.00% |
-| Unknown raw status / missing explicit outcome | 0 / 0 |
+| Unknown raw status / missing coded terminal outcome | 0 / 0 |
 | Explicit QA-marker rows (minimum, not full classification) | 5 |
 | Confirmed interest / qualification / booking completion / sales rate | N/A unless separately evidenced above |
 | Calls per successful commercial conversion | N/A |
@@ -843,7 +845,7 @@ No schema contains an audited pipeline linking these calls to settled payments, 
 | Missing/invalid contact identifiers on attempt rows | 0 |
 | Explicit rejected / busy labels | 0 / 0 |
 | Explicit rejection-label rate (coverage limited) | 0.00% |
-| Unknown raw status / missing explicit outcome | 0 / 22 |
+| Unknown raw status / missing coded terminal outcome | 0 / 22 |
 | Explicit QA-marker rows (minimum, not full classification) | 0 |
 | Confirmed interest / qualification / booking completion / sales rate | N/A unless separately evidenced above |
 | Calls per successful commercial conversion | N/A |
