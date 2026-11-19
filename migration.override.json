@@ -16,7 +16,11 @@
       "image": "supabase/supavisor@sha256:464b93a60ba8c96bc06dad7f241562d6613b2a994922307717b05f432ae415c2"
     },
     "auth": {
-      "image": "supabase/gotrue@sha256:c0c25187a6b835e65a6f6e6c6b39d090e832d40e6de5186f2c038e0411944232"
+      "image": "supabase/gotrue@sha256:c0c25187a6b835e65a6f6e6c6b39d090e832d40e6de5186f2c038e0411944232",
+      "environment": {
+        "GOTRUE_SITE_URL": "https://vk-realty.speaksy.in",
+        "GOTRUE_URI_ALLOW_LIST": "https://vk-realty.speaksy.in/**,https://vk-realty.13.237.67.46.sslip.io/**"
+      }
     },
     "api-gw": {
       "image": "envoyproxy/envoy@sha256:57e14a549d7bd43c8d3f6d03e8cfa653e037d4b38e133acd9b54f38c524401b4"
